@@ -36,7 +36,7 @@ export const Overlay = styled.div`
     height: 100%;
     border-radius: 16px;
     background-color: #000000ad;
-    opacity: 0.5;
+    opacity: 0.57;
     z-index: 1;
 `;
 
@@ -53,5 +53,7 @@ export const Title = styled.h3`
     left: 5%;
     color: #fff;
     z-index: 1;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 300;
+    font-size: 24px;
 `;

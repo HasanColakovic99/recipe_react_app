@@ -23,7 +23,8 @@ export const Image = styled.img`
 
 export const Text = styled.p`
     margin: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 300;
     font-size: 16px;
     line-height: 180%;
 

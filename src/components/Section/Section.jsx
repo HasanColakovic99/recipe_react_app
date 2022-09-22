@@ -1,14 +1,17 @@
-import {Section as SectionWrapper, SectionInner, Heading, Title} from './SectionStyle';
+import {Section as SectionWrapper, SectionInner, Heading, Title, Button} from './SectionStyle';
 
 const Section = ({
     title,
+    buttonText,
+    handleButton,
     children,
 }) => {
     return (
         <SectionWrapper>
             <SectionInner>
                 <Heading>
-                    <Title>Food</Title>
+                    <Title>{title}</Title>
+                    {buttonText && <Button onClick={handleButton}>{buttonText}</Button>}
                 </Heading>
                 {children}
             </SectionInner>

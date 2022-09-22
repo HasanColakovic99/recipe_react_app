@@ -1,13 +1,18 @@
-import {Figure, Image, Title} from './CardStyle';
-import Picture from '../../images/03.jpg';
+import {Recipe, Overlay, Figure, Image, Title} from './CardStyle';
 
-const Card = () => {
+const Card = ({
+    recipeId,
+    title,
+    imgSrc
+}) => {
     return (
-        <>
+        <Recipe to={`/recipe/${recipeId}`}>
             <Figure>
-                <Image src={Picture}/>
+                <Overlay />
+                <Image src={imgSrc}/>
             </Figure>
-        </>
+            <Title>{title}</Title>
+        </Recipe>
     );
 }
 

@@ -11,23 +11,8 @@ export const Grid = styled.div`
     row-gap: 48px;
 
     @media (min-width: 1024px) {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         column-gap: 48px;
-    }
-`;
-
-export const Section = styled.section`
-    padding: 60px 24px;
-
-    @media (min-width: 1024px) {
-        padding: 120px 0;
-    }
-`;
-
-export const SectionInner = styled.div`
-    @media (min-width: 1024px) {
-        width: 960px;
-        margin: 0 auto;
     }
 `;
 

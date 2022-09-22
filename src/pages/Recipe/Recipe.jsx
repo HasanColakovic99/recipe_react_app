@@ -1,26 +1,26 @@
-import sir from '../../images/sirnica.webp';
-import meso from '../../images/burek.jpg';
-import krompir from '../../images/krompiruša.webp';
-import zelje from '../../images/zeljanica.jpg';
-import vrilica from '../../images/vrilica.jpg';
-import kupusnjaca from '../../images/kupusnjaca.webp';
-
-
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Section from "../../components/Section/Section";
 import SingleRecipe from "../../components/SingleRecipe/SingleRecipe";
+import {Ingredients, Text, List, ListItem} from "../../components/SingleRecipe/SingleRecipeStyle";
 
 const Recipe = () => {
     
     let navigate = useNavigate();
     const [recipe, setRecipe] = useState(null);
-    const {id} = useParams();
-    const [recipes, setRecipes] = useState([{id: 1, name: 'Sirnica', imgSrc:sir},{id: 2, name: 'Burek', imgSrc:meso},{id: 3, name: 'Zeljanica', imgSrc:zelje},{id: 4, name: 'Vrilica', imgSrc:vrilica},{id: 5, name: 'Krompiruša', imgSrc:krompir}, {id: 6, name: 'Kupusnjača', imgSrc:kupusnjaca}]);
+    let {id} = useParams();
 
-    useEffect(()=>{
-        recipes && setRecipe(...recipes.filter(recipe => recipe.id === parseInt(id)));
-    }, [recipes, id]);
+    const API_KEY = 'bb5092d242434f589bdb55f592ee2804';
+
+    useEffect(() => {
+        getRecipe();
+    }, [id]);
+
+    const getRecipe = async () => {
+        const api = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`);
+        const data = await api.json();
+        setRecipe(data);
+    };
 
     const handleButton = () => {
         navigate(-1);
@@ -29,8 +29,17 @@ const Recipe = () => {
     return (
         <>
             {recipe &&
-                <Section title={recipe.name} buttonText={'Back'} handleButton={handleButton}>
-                    <SingleRecipe imgSrc={recipe.imgSrc}/>
+                <Section title={recipe.title} buttonText={'Back'} handleButton={handleButton}>
+                    <SingleRecipe imgSrc={recipe.image} readyInMinutes={recipe.readyInMinutes} servings={recipe.servings} price={recipe.pricePerServing} description={recipe.summary}/>
+
+                    <Ingredients>
+                        <Text>Ingredients</Text>
+                        <List>
+                            {recipe.extendedIngredients.map((ingredient) => (
+                                <ListItem key={ingredient.id}>{ingredient.original}</ListItem>
+                            ))}
+                        </List>
+                    </Ingredients>
                 </Section>
             }
         </>

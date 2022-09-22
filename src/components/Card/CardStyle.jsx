@@ -55,5 +55,5 @@ export const Title = styled.h3`
     z-index: 1;
     font-family: 'Manrope', sans-serif;
     font-weight: 300;
-    font-size: 24px;
+    font-size: 18px;
 `;

@@ -1,10 +1,11 @@
-import styled from 'styled-components';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import styled from "styled-components";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {fonts, colors, breakpoints} from "../../lib/style/theme";
 
 export const SingleRecipe = styled.div`
     text-align: justify;
 
-    @media (min-width: 768px) {
+    @media (${breakpoints.tablet}) {
         display: flex;
         justify-content: space-between;
     }
@@ -18,14 +19,14 @@ export const Figure = styled.figure`
     margin: 0;
     margin-bottom: 32px;
 
-    @media (min-width: 768px) {
+    @media (${breakpoints.tablet}) {
         width: 350px;
         height: 350px;
         margin-bottom: 0;
         flex-shrink: 0;
     }
 
-    @media (min-width: 1300px) {        
+    @media (${breakpoints.desktopLarge}) {        
         width: 450px;
         height: 450px;
     }
@@ -42,11 +43,11 @@ export const Data = styled.div`
     flex-direction: column;
     gap: 12px;
 
-    @media (min-width: 768px) {
+    @media (${breakpoints.tablet}) {
         padding-left: 48px;
     }
 
-    @media (min-width: 1300px) {
+    @media (${breakpoints.desktopLarge}) {
         padding-left: 64px;
     }
 `;
@@ -59,17 +60,17 @@ export const Content = styled.div`
 
 export const Icon = styled(FontAwesomeIcon)`
     font-size: 30px;
-    color: #b5927f;
+    color: ${colors.primary};
 `;
 
 export const Text = styled.p`
-    font-family: 'Manrope', sans-serif;
+    font-family: ${fonts.primary};
     font-weight: 300;
     margin: 0;
 `;
 
 export const Description = styled.p`
-    font-family: 'Manrope', sans-serif;
+    font-family: ${fonts.primary};
     font-weight: 300;
     line-height: 180%;
     margin-bottom: 0;
@@ -84,7 +85,7 @@ export const List = styled.ul`
 `;
 
 export const ListItem = styled.li`
-    font-family: 'Manrope', sans-serif;
+    font-family: ${fonts.primary};
     font-weight: 300;
     line-height: 180%;
 `;

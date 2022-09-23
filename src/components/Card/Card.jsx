@@ -1,4 +1,4 @@
-import {Recipe, Overlay, Figure, Image, Title} from './CardStyle';
+import {Recipe, Overlay, Figure, Image, Title} from "./CardStyle";
 
 const Card = ({
     recipeId,
@@ -14,6 +14,6 @@ const Card = ({
             <Title>{title}</Title>
         </Recipe>
     );
-}
+};
 
 export default Card;

@@ -1,5 +1,5 @@
-import {SingleRecipe as SingleRecipeWrapper, Figure, Image, Data, Icon, Content, Text, Description, Ingredients, List, ListItem} from './SingleRecipeStyle';
-import {faStopwatch, faUser, faSackDollar} from '@fortawesome/free-solid-svg-icons';
+import {SingleRecipe as SingleRecipeWrapper, Figure, Image, Data, Icon, Content, Text, Description, Ingredients, List, ListItem} from "./SingleRecipeStyle";
+import {faStopwatch, faUser, faSackDollar} from "@fortawesome/free-solid-svg-icons";
 
 const SingleRecipe = ({
     imgSrc,
@@ -9,7 +9,7 @@ const SingleRecipe = ({
     description,
     ingredients
 }) => {
-    return(
+    return (
         <SingleRecipeWrapper>
             <Figure>
                 <Image src={imgSrc} />
@@ -43,9 +43,8 @@ const SingleRecipe = ({
                     </List>
                 </Ingredients>
             </Data>
-            
         </SingleRecipeWrapper>
     );
-}
+};
 
 export default SingleRecipe;

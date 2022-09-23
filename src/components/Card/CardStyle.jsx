@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {Link} from "react-router-dom";
+import {fonts, colors} from "../../lib/style/theme";
 
 export const Recipe = styled(Link)`
     position: relative;
@@ -35,7 +36,7 @@ export const Overlay = styled.div`
     width: 100%;
     height: 100%;
     border-radius: 16px;
-    background-color: #000000ad;
+    background-color: ${colors.overlay};
     opacity: 0.57;
     z-index: 1;
 `;
@@ -51,9 +52,9 @@ export const Title = styled.h3`
     position: absolute;
     bottom: 0;
     left: 5%;
-    color: #fff;
+    color: #ffffff;
     z-index: 1;
-    font-family: 'Manrope', sans-serif;
+    font-family: ${fonts.primary};
     font-weight: 400;
     font-size: 19px;
 `;

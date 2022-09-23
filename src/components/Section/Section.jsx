@@ -1,5 +1,5 @@
-import {Section as SectionWrapper, SectionInner, Heading, Title, Button} from './SectionStyle';
-import Search from '../Search/Search';
+import {Section as SectionWrapper, SectionInner, Heading, Title, Button} from "./SectionStyle";
+import Search from "../Search/Search";
 
 const Section = ({
     title,
@@ -21,6 +21,6 @@ const Section = ({
             </SectionInner>
         </SectionWrapper>
     );
-}
+};
 
 export default Section;

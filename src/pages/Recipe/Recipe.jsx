@@ -31,14 +31,25 @@ const Recipe = () => {
     return (
         <>
             {recipe &&
-                <Section title={recipe.title} buttonText={'Back'} handleButton={handleButton}>
+                <Section 
+                    title={recipe.title} 
+                    buttonText={'Back'} 
+                    handleButton={handleButton}
+                >
                     {isLoading ? <Loader /> : 
-                        <SingleRecipe imgSrc={recipe.image} readyInMinutes={recipe.readyInMinutes} servings={recipe.servings} price={recipe.pricePerServing} description={recipe.summary.replace(/<\/?[^>]+(>|$)/g, '')} ingredients={recipe.extendedIngredients}/>
+                        <SingleRecipe 
+                            imgSrc={recipe.image} 
+                            readyInMinutes={recipe.readyInMinutes} 
+                            servings={recipe.servings} 
+                            price={recipe.pricePerServing} 
+                            description={recipe.summary.replace(/<\/?[^>]+(>|$)/g, '')} 
+                            ingredients={recipe.extendedIngredients}
+                        />
                     }
                 </Section>
             }
         </>
     );
-}
+};
 
 export default Recipe;

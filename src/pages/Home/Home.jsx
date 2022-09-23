@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
+import {Grid} from "../../lib/style/generalStyles";
 import Section from "../../components/Section/Section";
-import {Grid} from '../../lib/style/generalStyles';
-import Card from '../../components/Card/Card';
-import Loader from '../../components/Loader/Loader';
+import Card from "../../components/Card/Card";
+import Loader from "../../components/Loader/Loader";
 
 const Home = () => {
     const [recipes, setRecipes] = useState([]);
@@ -30,24 +30,31 @@ const Home = () => {
     }
 
     return (
-        <>        
-        <Section title="Explore some delicious food" placeholder="Search..." onChange={handleSearch}>
-            {isLoading ? <Loader /> : (
-                <Grid>
-                    {recipes.filter(recipe => {
-                        if(recipe.title.toLowerCase().includes(searchRecipe.toLowerCase())){
-                            return recipe;
-                        }
-                        else {
-                            return recipe;
-                        }
-                    }).map(recipe => (
-                        <Card key={recipe.id} recipeId={recipe.id} title={recipe.title} imgSrc={recipe.image}/>
-                    ))}
-                </Grid>
-            )}
+        <Section 
+            title="Explore some delicious food" 
+            placeholder="Search..." 
+            onChange={handleSearch}
+        >
+        {isLoading ? <Loader /> : (
+            <Grid>
+                {recipes.filter(recipe => {
+                    if(recipe.title.toLowerCase().includes(searchRecipe.toLowerCase())){
+                        return recipe;
+                    }
+                    else {
+                        return recipe;
+                    }
+                }).map(recipe => (
+                    <Card 
+                        key={recipe.id} 
+                        recipeId={recipe.id} 
+                        title={recipe.title} 
+                        imgSrc={recipe.image}
+                    />
+                ))}
+            </Grid>
+        )}
         </Section>
-        </>
     );
 };
 

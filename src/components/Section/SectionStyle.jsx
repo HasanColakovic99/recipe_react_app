@@ -1,20 +1,21 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import {colors, fonts, breakpoints} from "../../lib/style/theme";
 
 export const Section = styled.section`
     padding: 60px 24px;
 
-    @media (min-width: 1024px) {
+    @media (${breakpoints.desktop}) {
         padding: 80px 0;
     }
 `;
 
 export const SectionInner = styled.div`
-    @media (min-width: 1024px) {
+    @media (${breakpoints.desktop}) {
         width: 960px;
         margin: 0 auto;
     }
 
-    @media (min-width: 1300px) {
+    @media (${breakpoints.desktopLarge}) {
         width: 1260px;
     }
 `;
@@ -22,7 +23,7 @@ export const SectionInner = styled.div`
 export const Heading = styled.div`
     margin-bottom: 60px;
 
-    @media (min-width: 768px) {
+    @media (${breakpoints.tablet}) {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -30,17 +31,17 @@ export const Heading = styled.div`
 `;
 
 export const Title = styled.h1`
-    font-family: 'PT Serif', serif;
+    font-family: ${fonts.secondary};
     font-size: 26px;
     margin: 0;
     margin-bottom: 32px;
 
-    @media (min-width: 768px) {
+    @media (${breakpoints.tablet}) {
         font-size: 32px;
         margin-bottom: 0;
     }
 
-    @media (min-width: 1024px) {
+    @media (${breakpoints.desktop}) {
         font-size: 36px;
     }
 `;
@@ -48,9 +49,9 @@ export const Title = styled.h1`
 export const Button = styled.button`
     all: unset;
     border-radius: 30px;
-    border: 2px solid #b5927f;
-    color: #a17a69;
-    font-family: 'Manrope', sans-serif;
+    border: 2px solid ${colors.primary};
+    color: ${colors.primary};
+    font-family: ${fonts.primary};
     font-size: 16px;
     font-weight: 600;
     text-transform: uppercase;
@@ -62,7 +63,7 @@ export const Button = styled.button`
     }
 
     &:hover {
-        background-color: #b5927f;
-        color: #fff;
+        background-color: ${colors.primary};
+        color: #ffffff;
     }
 `;

@@ -1,4 +1,4 @@
-import {Form, Input} from './SearchStyle';
+import {Form, Input} from "./SearchStyle";
 
 const Search = ({
     placeholder,
@@ -9,6 +9,6 @@ const Search = ({
             <Input type="search" placeholder={placeholder} onChange={onChange}/>
         </Form>
     );
-}
+};
 
 export default Search;

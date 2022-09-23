@@ -1,5 +1,5 @@
-import {ThreeDots} from 'react-loader-spinner';
-import {LoaderWrapper} from './LoaderStyle';
+import {ThreeDots} from "react-loader-spinner";
+import {LoaderWrapper} from "./LoaderStyle";
 
 const Loader = () => {
     return (
@@ -11,6 +11,6 @@ const Loader = () => {
             />
         </LoaderWrapper>
     );
-}
+};
 
 export default Loader;

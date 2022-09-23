@@ -6,7 +6,8 @@ const SingleRecipe = ({
     readyInMinutes,
     servings,
     price,
-    description
+    description,
+    ingredients
 }) => {
     return(
         <SingleRecipeWrapper>
@@ -32,6 +33,15 @@ const SingleRecipe = ({
                 </Content>
 
                 <Description>{description}</Description>
+
+                <Ingredients>
+                    <Text>Ingredients</Text>
+                    <List>
+                        {ingredients.map((ingredient) => (
+                            <ListItem key={ingredient.id}>{ingredient.original}</ListItem>
+                        ))}
+                    </List>
+                </Ingredients>
             </Data>
             
         </SingleRecipeWrapper>

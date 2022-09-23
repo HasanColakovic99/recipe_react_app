@@ -69,4 +69,6 @@ export const List = styled.ul`
 
 export const ListItem = styled.li`
     font-family: 'Manrope', sans-serif;
+    font-weight: 300;
+    line-height: 180%;
 `;

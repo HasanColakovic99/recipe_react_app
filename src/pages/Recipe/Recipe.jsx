@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Section from "../../components/Section/Section";
 import SingleRecipe from "../../components/SingleRecipe/SingleRecipe";
-import {Ingredients, Text, List, ListItem} from "../../components/SingleRecipe/SingleRecipeStyle";
 
 const Recipe = () => {
     
@@ -30,16 +29,7 @@ const Recipe = () => {
         <>
             {recipe &&
                 <Section title={recipe.title} buttonText={'Back'} handleButton={handleButton}>
-                    <SingleRecipe imgSrc={recipe.image} readyInMinutes={recipe.readyInMinutes} servings={recipe.servings} price={recipe.pricePerServing} description={recipe.summary}/>
-
-                    <Ingredients>
-                        <Text>Ingredients</Text>
-                        <List>
-                            {recipe.extendedIngredients.map((ingredient) => (
-                                <ListItem key={ingredient.id}>{ingredient.original}</ListItem>
-                            ))}
-                        </List>
-                    </Ingredients>
+                    <SingleRecipe imgSrc={recipe.image} readyInMinutes={recipe.readyInMinutes} servings={recipe.servings} price={recipe.pricePerServing} description={recipe.summary} ingredients={recipe.extendedIngredients}/>
                 </Section>
             }
         </>

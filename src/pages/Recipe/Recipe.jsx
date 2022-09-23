@@ -12,7 +12,9 @@ const Recipe = () => {
     const API_KEY = 'bb5092d242434f589bdb55f592ee2804';
 
     useEffect(() => {
-        getRecipe();
+        setTimeout(
+            getRecipe(), 2000
+        );
     }, [id]);
 
     const getRecipe = async () => {
@@ -29,7 +31,7 @@ const Recipe = () => {
         <>
             {recipe &&
                 <Section title={recipe.title} buttonText={'Back'} handleButton={handleButton}>
-                    <SingleRecipe imgSrc={recipe.image} readyInMinutes={recipe.readyInMinutes} servings={recipe.servings} price={recipe.pricePerServing} description={recipe.summary} ingredients={recipe.extendedIngredients}/>
+                    <SingleRecipe imgSrc={recipe.image} readyInMinutes={recipe.readyInMinutes} servings={recipe.servings} price={recipe.pricePerServing} description={recipe.summary.replace(/<\/?[^>]+(>|$)/g, '')} ingredients={recipe.extendedIngredients}/>
                 </Section>
             }
         </>

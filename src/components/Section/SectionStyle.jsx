@@ -4,7 +4,7 @@ export const Section = styled.section`
     padding: 60px 24px;
 
     @media (min-width: 1024px) {
-        padding: 120px 0;
+        padding: 80px 0;
     }
 `;
 

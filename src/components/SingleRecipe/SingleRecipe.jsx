@@ -23,13 +23,13 @@ const SingleRecipe = ({
 
                 <Content>
                     <Icon icon={faUser}/>
-                    <Text>{servings} osobe</Text>
+                    <Text>{servings} persons</Text>
                 </Content>
 
 
                 <Content>
                     <Icon icon={faSackDollar}/>
-                    <Text>{price} dolara</Text>  
+                    <Text>{price} dolars</Text>  
                 </Content>
 
                 <Description>{description}</Description>

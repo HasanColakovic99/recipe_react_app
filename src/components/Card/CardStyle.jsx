@@ -54,6 +54,6 @@ export const Title = styled.h3`
     color: #fff;
     z-index: 1;
     font-family: 'Manrope', sans-serif;
-    font-weight: 300;
-    font-size: 18px;
+    font-weight: 400;
+    font-size: 19px;
 `;

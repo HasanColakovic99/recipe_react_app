@@ -4,11 +4,11 @@ import {Grid} from '../../lib/style/generalStyles';
 import Card from '../../components/Card/Card';
 import Loader from '../../components/Loader/Loader';
 
-const API_KEY = '3b677ad732404c8b80a78b3c8d686422';
-
 const Home = () => {
     const [recipes, setRecipes] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [searchRecipe, setSearchRecipe] = useState("");
+    const API_KEY = '3b677ad732404c8b80a78b3c8d686422';
 
     useEffect(() => {
         setTimeout(() => {
@@ -23,16 +23,31 @@ const Home = () => {
         setIsLoading(false);
     };
 
+    const handleSearch = (event) => {
+        event.preventDefault();
+        console.log(event.target.value);
+        setSearchRecipe(event.target.value);
+    }
+
     return (
-        <Section>
+        <>        
+        <Section title="Explore some delicious food" placeholder="Search..." onChange={handleSearch}>
             {isLoading ? <Loader /> : (
                 <Grid>
-                    {recipes.map(recipe => (
+                    {recipes.filter(recipe => {
+                        if(recipe.title.toLowerCase().includes(searchRecipe.toLowerCase())){
+                            return recipe;
+                        }
+                        else {
+                            return recipe;
+                        }
+                    }).map(recipe => (
                         <Card key={recipe.id} recipeId={recipe.id} title={recipe.title} imgSrc={recipe.image}/>
                     ))}
                 </Grid>
             )}
         </Section>
+        </>
     );
 };
 

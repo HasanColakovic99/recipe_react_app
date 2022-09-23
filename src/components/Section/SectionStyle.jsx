@@ -32,6 +32,7 @@ export const Heading = styled.div`
 export const Title = styled.h1`
     font-family: 'PT Serif', serif;
     font-size: 26px;
+    margin: 0;
     margin-bottom: 32px;
 
     @media (min-width: 768px) {

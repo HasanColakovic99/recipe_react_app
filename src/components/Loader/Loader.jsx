@@ -1,13 +1,13 @@
-import {InfinitySpin} from 'react-loader-spinner';
+import {ThreeDots} from 'react-loader-spinner';
 import {LoaderWrapper} from './LoaderStyle';
 
 const Loader = () => {
     return (
         <LoaderWrapper>
-            <InfinitySpin 
+            <ThreeDots 
                 color="#b5927f"
-                height={320}
-                width={320}
+                height={120}
+                width={120}
             />
         </LoaderWrapper>
     );

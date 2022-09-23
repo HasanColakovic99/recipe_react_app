@@ -4,7 +4,7 @@ import {Grid} from '../../lib/style/generalStyles';
 import Card from '../../components/Card/Card';
 import Loader from '../../components/Loader/Loader';
 
-const API_KEY = 'bb5092d242434f589bdb55f592ee2804';
+const API_KEY = '3b677ad732404c8b80a78b3c8d686422';
 
 const Home = () => {
     const [recipes, setRecipes] = useState([]);
@@ -13,7 +13,7 @@ const Home = () => {
     useEffect(() => {
         setTimeout(() => {
             getRecipes();
-        }, 3000);
+        }, 2000);
     }, []);
 
     const getRecipes = async () => {

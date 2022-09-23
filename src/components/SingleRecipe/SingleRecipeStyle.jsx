@@ -3,16 +3,32 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 export const SingleRecipe = styled.div`
     text-align: justify;
-    display: flex;
+
+    @media (min-width: 768px) {
+        display: flex;
+        justify-content: space-between;
+    }
 `;
 
 export const Figure = styled.figure`
-    width: 450px;
-    height: 450px;
+    width: 100%;
+    height: auto;
     border-radius: 16px;
     overflow: hidden;
     margin: 0;
-    flex-shrink: 0;
+    margin-bottom: 32px;
+
+    @media (min-width: 768px) {
+        width: 350px;
+        height: 350px;
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+
+    @media (min-width: 1300px) {        
+        width: 450px;
+        height: 450px;
+    }
 `;
 
 export const Image = styled.img`

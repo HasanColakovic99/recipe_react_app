@@ -1,7 +1,11 @@
-const Header = () => {
+import {Footer as FooterWrapper, Text} from "./FooterStyle";
+ 
+const Footer = () => {
     return (
-        <h1>Bla</h1>
+        <FooterWrapper>
+            <Text>&copy; {(new Date().getFullYear())} Hasan Čolaković</Text>
+        </FooterWrapper>
     );
 };
 
-export default Header;
+export default Footer;

@@ -3,6 +3,7 @@ import {Grid} from "../../lib/style/generalStyles";
 import Section from "../../components/Section/Section";
 import Card from "../../components/Card/Card";
 import Loader from "../../components/Loader/Loader";
+import Footer from "../../components/Footer/Footer";
 
 const Home = () => {
     const [recipes, setRecipes] = useState([]);
@@ -13,7 +14,7 @@ const Home = () => {
     useEffect(() => {
         setTimeout(() => {
             getRecipes();
-        }, 2000);
+        }, 1000);
     }, []);
 
     const getRecipes = async () => {
@@ -30,6 +31,7 @@ const Home = () => {
     }
 
     return (
+        <>        
         <Section 
             title="Explore some delicious food" 
             placeholder="Search..." 
@@ -55,6 +57,8 @@ const Home = () => {
             </Grid>
         )}
         </Section>
+        {!isLoading && <Footer />}
+        </>
     );
 };
 

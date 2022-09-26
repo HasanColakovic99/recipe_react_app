@@ -4,6 +4,7 @@ import Section from "../../components/Section/Section";
 import Card from "../../components/Card/Card";
 import Loader from "../../components/Loader/Loader";
 import Footer from "../../components/Footer/Footer";
+import Search from "../../components/Search/Search";
 
 const Home = () => {
     const [recipes, setRecipes] = useState([]);
@@ -24,29 +25,36 @@ const Home = () => {
         setIsLoading(false);
     };
 
-    const handleSearch = (event) => {
-        event.preventDefault();
-        console.log(event.target.value);
-        setSearchRecipe(event.target.value);
+    const getSearchedRecipes = async (name) => {
+        const api = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${name}`);
+        const data = await api.json();
+        setRecipes(data.results);
     }
 
+    const handleSearch = (event) => {
+        event.preventDefault();
+
+        setRecipes([]);
+        getSearchedRecipes(searchRecipe);
+    };
+
     return (
-        <>        
+        <>
+        {/* <form onSubmit={handleSearch}>
+            <input 
+                type="text"
+                onChange={(e) => setSearchRecipe(e.target.value)}
+                value={searchRecipe}
+            />        
+        </form> */}
+
         <Section 
             title="Explore some delicious food" 
-            placeholder="Search..." 
-            onChange={handleSearch}
         >
+        <Search onChange={(e) => setSearchRecipe(e.target.value)} value={searchRecipe} onSubmit={handleSearch}/>
         {isLoading ? <Loader /> : (
             <Grid>
-                {recipes.filter(recipe => {
-                    if(recipe.title.toLowerCase().includes(searchRecipe.toLowerCase())){
-                        return recipe;
-                    }
-                    else {
-                        return recipe;
-                    }
-                }).map(recipe => (
+                {recipes.map(recipe => (
                     <Card 
                         key={recipe.id} 
                         recipeId={recipe.id} 

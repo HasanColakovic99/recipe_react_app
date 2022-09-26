@@ -1,12 +1,13 @@
 import {Form, Input} from "./SearchStyle";
 
 const Search = ({
-    placeholder,
-    onChange
+    onChange,
+    value,
+    onSubmit
 }) => {
     return (
-        <Form>
-            <Input type="search" placeholder={placeholder} onChange={onChange}/>
+        <Form onSubmit={onSubmit}>
+            <Input type="text" placeholder='Search...' onChange={onChange} value={value}/>
         </Form>
     );
 };

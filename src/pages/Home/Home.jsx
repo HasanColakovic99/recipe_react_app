@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {Grid} from "../../lib/style/generalStyles";
+import {Grid, Message} from "../../lib/style/generalStyles";
 import Section from "../../components/Section/Section";
 import Card from "../../components/Card/Card";
 import Loader from "../../components/Loader/Loader";
@@ -9,8 +9,8 @@ import Search from "../../components/Search/Search";
 const Home = () => {
     const [recipes, setRecipes] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [searchRecipe, setSearchRecipe] = useState("");
-    const API_KEY = '3b677ad732404c8b80a78b3c8d686422';
+    const [searchedRecipe, setSearchedRecipe] = useState("");
+    const API_KEY = '9ef0af15c34e4ff2b9c193dcd7241a6e';
 
     useEffect(() => {
         setTimeout(() => {
@@ -33,25 +33,16 @@ const Home = () => {
 
     const handleSearch = (event) => {
         event.preventDefault();
-
         setRecipes([]);
-        getSearchedRecipes(searchRecipe);
+        getSearchedRecipes(searchedRecipe);
     };
 
     return (
         <>
-        {/* <form onSubmit={handleSearch}>
-            <input 
-                type="text"
-                onChange={(e) => setSearchRecipe(e.target.value)}
-                value={searchRecipe}
-            />        
-        </form> */}
-
+        <Search onChange={(e) => setSearchedRecipe(e.target.value)} value={searchedRecipe} onSubmit={handleSearch}/>
         <Section 
             title="Explore some delicious food" 
         >
-        <Search onChange={(e) => setSearchRecipe(e.target.value)} value={searchRecipe} onSubmit={handleSearch}/>
         {isLoading ? <Loader /> : (
             <Grid>
                 {recipes.map(recipe => (
@@ -65,7 +56,8 @@ const Home = () => {
             </Grid>
         )}
         </Section>
-        {!isLoading && <Footer />}
+        {!isLoading && recipes.length === 0 && <Message>Ops, sorry. We can't find a recipe with searched word. Try again!</Message>}
+        {!isLoading && recipes.length !== 0 && <Footer />}
         </>
     );
 };
